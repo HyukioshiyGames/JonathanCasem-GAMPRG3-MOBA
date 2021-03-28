@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using System.Linq;
 public class Creep : MonoBehaviour
 {
     #region Enum Declarations
@@ -108,7 +109,7 @@ public class Creep : MonoBehaviour
     {
         if(navMeshAgent.isStopped)
             navMeshAgent.isStopped = false;
-
+        /*
         if (DistanceFromTarget(targetWaypoint) <= 1) 
         {
             targetWaypointIndex++;
@@ -130,10 +131,31 @@ public class Creep : MonoBehaviour
             else
                 MoveToTargetNavMesh(targetWaypoint);
 
+        }*/
+        if(targetWaypoint == null) 
+        {
+            targetWaypoint = laneWaypoints.OrderBy(w => Vector3.Distance(this.transform.position, w.position)).FirstOrDefault();
         }
-     
+        MoveToTargetNavMesh(targetWaypoint);
+
+
+        if (Vector3.Distance(this.transform.position,targetWaypoint.position) <= 1f)
+        {
+            RemoveCurrentTargetWaypoint(targetWaypoint);
+            targetWaypoint = null;
+        }
+            
     }
 
+    void RemoveCurrentTargetWaypoint(Transform currentTargetWP) 
+    {
+        int index = laneWaypoints.IndexOf(currentTargetWP);
+        for (int i = index; i >= 0; i--) 
+        {
+            laneWaypoints.Remove(laneWaypoints[i]);
+        }
+        print("Ran");
+    }
     public void Attack() 
     {
         if (enemiesInRange.Count > 0)
@@ -150,6 +172,8 @@ public class Creep : MonoBehaviour
                     else
                         enemiesInRange.Remove(enemiesInRange[i]);
                 }
+
+                //currentTarget = enemiesInRange.OrderBy(t => Vector3.Distance(this.transform.position, t.transform.position)).FirstOrDefault();
             }
             else 
             {
@@ -168,6 +192,7 @@ public class Creep : MonoBehaviour
                     animator.Play("Run");
                     navMeshAgent.isStopped = false;
                     rb.constraints = RigidbodyConstraints.None;
+                    MoveToTargetNavMesh(currentTarget.transform);
                 }
             }
         }
@@ -176,9 +201,10 @@ public class Creep : MonoBehaviour
             currentTarget = null;
 
             animator.Play("Run");
-            MoveToTargetNavMesh(targetWaypoint);
-            currentTargetWaypoint = targetWaypoint;
+            //MoveToTargetNavMesh(targetWaypoint);
+            //currentTargetWaypoint = targetWaypoint;
             creepState = CreepState.Walk;
+            targetWaypoint = null; 
         }
     }
 
