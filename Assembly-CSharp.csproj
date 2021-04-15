@@ -65,15 +65,16 @@
   <ItemGroup>
     <Compile Include="Assets\Art\Conifers [BOTD]\Render Pipeline Support\Built-in RP\CTI Runtime Components\Scripts\CTI_CustomWind.cs" />
     <Compile Include="Assets\Art\Conifers [BOTD]\Render Pipeline Support\Built-in RP\CTI Runtime Components\Scripts\CTI_Utils.cs" />
-    <Compile Include="Assets\Scripts\Actions.cs" />
-    <Compile Include="Assets\Scripts\Barracks.cs" />
-    <Compile Include="Assets\Scripts\Creep.cs" />
-    <Compile Include="Assets\Scripts\DotaCamera.cs" />
-    <Compile Include="Assets\Scripts\Health.cs" />
-    <Compile Include="Assets\Scripts\MasterSpawner.cs" />
-    <Compile Include="Assets\Scripts\NightAndDay.cs" />
-    <Compile Include="Assets\Scripts\Steering.cs" />
-    <Compile Include="Assets\Tower.cs" />
+    <Compile Include="Assets\Scripts\Camera\DotaCamera.cs" />
+    <Compile Include="Assets\Scripts\Creep\Creep.cs" />
+    <Compile Include="Assets\Scripts\Creep\Health.cs" />
+    <Compile Include="Assets\Scripts\Spawners\CreepManager.cs" />
+    <Compile Include="Assets\Scripts\Spawners\MasterSpawner.cs" />
+    <Compile Include="Assets\Scripts\Tower\Projectile.cs" />
+    <Compile Include="Assets\Scripts\Tower\Tower.cs" />
+    <Compile Include="Assets\Scripts\Tower\TowerManager.cs" />
+    <Compile Include="Assets\Scripts\World Objects\Barracks.cs" />
+    <Compile Include="Assets\Scripts\World Objects\NightAndDay.cs" />
     <None Include="Assets\Art\Conifers [BOTD]\Render Pipeline Support\Built-in RP\CTI Runtime Components\Shaders\CTI_LOD_Bark_Array_301.shader" />
     <None Include="Assets\Art\Imported Assets\Samples\Terrain Tools\0.1.0-preview\Terrain Assets\ThirdPartyNotices.txt" />
     <None Include="Assets\Art\Conifers [BOTD]\Render Pipeline Support\Built-in RP\CTI Runtime Components\Shaders\CTI_LOD_Billboard_301.shader" />

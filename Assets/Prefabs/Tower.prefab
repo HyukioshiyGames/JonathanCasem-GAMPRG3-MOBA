@@ -343,9 +343,10 @@ GameObject:
   - component: {fileID: 3092691124025187277}
   - component: {fileID: 558440994}
   - component: {fileID: 558440995}
+  - component: {fileID: 5027109725083644510}
   m_Layer: 0
   m_Name: Tower
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 32
@@ -426,6 +427,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d555e7f372c557a4b81af6445a268e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerSide: 0
+  towerState: 1
+  enemiesInRange: []
+  attackSpeed: 2
+  current: 0
+  target: {fileID: 0}
+  projectilePrefab: {fileID: 7753706369527610745, guid: c9a1400c39bf1b54f93ecc15650ca707,
+    type: 3}
+  damage: 15
 --- !u!208 &558440994
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -458,3 +468,16 @@ MonoBehaviour:
   currentHealth: 0
   slider: {fileID: 1756612201}
   canvas: {fileID: 321142483}
+--- !u!135 &5027109725083644510
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8976912861844015416}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.25
+  m_Center: {x: 0.0000000018626451, y: 0.0000000037269143, z: 0.055782434}

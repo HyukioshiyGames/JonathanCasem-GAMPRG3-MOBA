@@ -484,7 +484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13112eaa48eef0347ad8d744dc85b7e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 80
   currentHealth: 0
   slider: {fileID: 0}
   canvas: {fileID: 2281372917878722467}
